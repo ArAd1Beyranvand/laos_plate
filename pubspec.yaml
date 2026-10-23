@@ -1,7 +1,7 @@
 name: laos_plate
 description: "Laos's licence plates for the plate_core library — the 2001 series: the two-row provincial plates (private, government, company and taxable company, with the 2024 EV badge), the temporary plate, and the international-organisation, police and defence plates, with their themes and an advisory validator."
 version: 0.1.0
-publish_to: none
+repository: https://github.com/ArAd1Beyranvand/laos_plate
 resolution: workspace
 
 environment:
