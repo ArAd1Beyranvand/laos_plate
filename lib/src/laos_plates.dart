@@ -184,7 +184,8 @@ PlateLabel _text(
   color: color,
 );
 
-/// Laos's licence plates: three designs, thirteen categories.
+/// Laos's licence plates: three designs, thirteen categories. Categories that
+/// differ only by theme share one spec.
 ///
 /// * Provincial — the province's name over two consonants and four digits.
 ///   Groups `letters`, `serial`.
@@ -207,7 +208,7 @@ abstract final class LaosPlates {
     LaosProvince province = LaosProvince.vientianeCapital,
   }) {
     final id = category.design == LaosDesign.provincial
-        ? 'la.${category.id}.${province.id}'
+        ? 'la.provincial${category.ev ? '_ev' : ''}.${province.id}'
         : 'la.${category.id}';
     return _cache[id] ??= switch (category.design) {
       LaosDesign.provincial => _provincial(id, category, province),
