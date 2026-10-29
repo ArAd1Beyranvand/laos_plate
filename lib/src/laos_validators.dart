@@ -19,6 +19,9 @@ abstract final class LaosClassLetters {
   };
 }
 
+// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges a provincial plate: two consonants, the first a class letter, and
 /// four digits. Reports, never bars a keystroke.
 class LaosValidator extends GatedPlateValidator {

@@ -7,6 +7,9 @@
 /// theme; shape is the spec.
 library;
 
+// TODO(py): [D5] one module `plates.countries.laos`; assets via importlib.resources.
+// TODO(ts): [D5] one subpath export `./countries/laos`; tree-shakable.
+// TODO(kt): [D5] package `countries.laos` in the countries module.
 export 'package:plate_alphabet/plate_alphabet.dart' show LaosAlphabets;
 
 export 'src/laos_colors.dart';
