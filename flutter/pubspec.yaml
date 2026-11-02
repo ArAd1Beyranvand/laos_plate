@@ -1,7 +1,7 @@
 name: laos_plate
 description: "Laos's licence plates for plate_core: the 2001 series: the two-row provincial plates (private, government, company and taxable company, with the 2024 EV badge), and more."
 version: 0.1.0
-repository: https://github.com/ArAd1Beyranvand/laos_plate
+repository: https://github.com/ArAd1Beyranvand/laos_plate/tree/main/flutter
 resolution: workspace
 
 environment:
