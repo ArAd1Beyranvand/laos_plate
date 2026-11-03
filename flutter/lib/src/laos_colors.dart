@@ -44,6 +44,4 @@ abstract final class LaosColors {
   /// The 2024 EV badge, against its own white letters: `2CCF47`. The company
   /// EV photo's paler `82D47A` is glare on a glossy sticker.
   static const Color evGreen = Color(0xFF2CCF47);
-
-  static const Color inactive = Color(0xFFB0B0B0);
 }

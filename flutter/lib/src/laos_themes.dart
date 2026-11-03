@@ -45,7 +45,6 @@ abstract final class LaosThemes {
 PlateTheme _ink(Color field, Color ink) => PlateTheme.monochrome(
   field: field,
   ink: ink,
-  inactive: LaosColors.inactive,
   borderWidthRatio: 0.044,
   plateRadiusRatio: 0.08,
 );

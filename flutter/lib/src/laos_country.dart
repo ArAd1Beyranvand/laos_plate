@@ -7,7 +7,6 @@ import 'laos_colors.dart';
 abstract final class LaosCountry {
   static const PlateCountry laos = PlateCountry(
     code: 'la',
-    captionLines: <String>[],
     panelColor: LaosColors.white,
     panelTextColor: LaosColors.black,
   );

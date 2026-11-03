@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:laos_plate/laos_plate.dart';
 import 'package:plate_core/plate_core.dart';
+import 'package:plate_core/testing.dart';
 
 /// One golden per category, drawn with real bold faces so the ink can be
 /// measured against the flattened photos (see `_Layout` in `laos_plates.dart`).
@@ -49,33 +49,13 @@ void main() {
         spec,
         values[category.id]!.split(' '),
       );
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: Center(
-              child: SizedBox(
-                width: 680,
-                height: 300,
-                child: PlateThemeScope(
-                  theme: theme,
-                  child: PlateView(
-                    controller: controller,
-                    theme: theme,
-                    country: LaosCountry.laos,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+      await pumpPlateGolden(
+        tester,
+        controller,
+        'goldens/la_${category.id}.png',
+        theme: theme,
+        country: LaosCountry.laos,
       );
-      await tester.pumpAndSettle();
-      await expectLater(
-        find.byType(PlateView),
-        matchesGoldenFile('goldens/la_${category.id}.png'),
-      );
-      await tester.pumpWidget(const SizedBox.shrink());
-      controller.dispose();
     });
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
@@ -59,16 +57,14 @@ abstract final class _Layout {
   // Provincial.
   static const double captionCx = 170.2, captionCy = 34, captionGlyph = 34.4;
   static const double serialCy = 100.9, serialBox = 96;
-  static const double letterCx = 40, letterPitch = 46.5;
-  static const double digitCx = 163.2;
+  static const double letterCx = 40, letterPitch = 46.5, digitCx = 163.2;
   static const PlateBox evBadge = PlateBox(9.4, 9.0, 27, 24.2);
   static const double evGlyph = 24, evRadius = 2.5;
 
   // Temporary.
   static const double tempCy = 49.4, tempBox = 96;
   static const double tempLetterCx = 42.4, tempLetterPitch = 53.8;
-  static const double tempDigitCx = 146.1;
-  static const double expiryCy = 123.9, expiryBox = 40;
+  static const double tempDigitCx = 146.1, expiryCy = 123.9, expiryBox = 40;
   static const double expiryCaptionCx = 70.4, expiryCaptionGlyph = 31.3;
   static const double expiryDigitCx = 165.2, expiryPitch = 18.7;
   static const double expiryDashGap = 10.8;
@@ -135,16 +131,13 @@ class _Builder {
     final start = slots.length;
     for (var i = 0; i < count; i += perSlot) {
       slots.add(
-        PlateSlot(
-          alphabet: alphabet,
-          box: PlateBox(
-            firstCx - pitch / 2 + i * pitch,
-            cy - box / 2,
-            perSlot * pitch,
-            box,
-          ),
-          length: perSlot,
-          spacing: max(0, pitch - 0.6 * 0.72 * box),
+        plateRun(
+          alphabet,
+          perSlot,
+          left: firstCx - pitch / 2 + i * pitch,
+          top: cy - box / 2,
+          pitch: pitch,
+          height: box,
         ),
       );
     }
@@ -196,7 +189,7 @@ PlateLabel _text(
   Color? color,
 }) => PlateLabel(
   text: text,
-  box: PlateBox(cx - width / 2, cy - height / 2, width, height),
+  box: PlateBox.centered(cx, cy, width, height),
   glyphHeight: glyph,
   color: color,
 );
@@ -274,8 +267,6 @@ abstract final class LaosPlates {
     country: LaosCountry.laos,
     canvasWidth: _Layout.width,
     canvasHeight: _Layout.height,
-    panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
-    noPanel: true,
     slots: b.slots,
     labels: b.labels,
     bands: bands,

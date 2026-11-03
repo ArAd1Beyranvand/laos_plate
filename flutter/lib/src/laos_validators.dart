@@ -19,16 +19,10 @@ abstract final class LaosClassLetters {
   };
 }
 
-// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges a provincial plate: two consonants, the first a class letter, and
 /// four digits. Reports, never bars a keystroke.
 class LaosValidator extends GatedPlateValidator {
-  const LaosValidator();
-
-  @override
-  String get gateGroup => 'serial';
+  const LaosValidator() : super('serial');
 
   static const String reasonLetters = 'The register is two consonants.';
   static const String reasonClass =
@@ -57,10 +51,7 @@ class LaosValidator extends GatedPlateValidator {
 /// an expiry printed 2-4-2. The photographed `10-2024-01` does not show which
 /// end is the day, so only the shape is checked.
 class LaosTemporaryValidator extends GatedPlateValidator {
-  const LaosTemporaryValidator();
-
-  @override
-  String get gateGroup => 'serial';
+  const LaosTemporaryValidator() : super('serial');
 
   static const String reasonLetters = 'The register is two consonants.';
   static const String reasonSerial = 'The number is one digit and three.';
@@ -87,10 +78,7 @@ class LaosTemporaryValidator extends GatedPlateValidator {
 /// Judges a prefixed plate: two-and-two digits on the international
 /// organisations' plates, four on the police and defence plates.
 class LaosPrefixedValidator extends GatedPlateValidator {
-  const LaosPrefixedValidator();
-
-  @override
-  String get gateGroup => 'serial';
+  const LaosPrefixedValidator() : super('serial');
 
   static const String reasonCode = 'The code is two digits.';
   static const String reasonSerial = 'The number is two or four digits.';

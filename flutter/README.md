@@ -6,13 +6,24 @@ GO VEGAN 🌱
 
 From the mighty people of Iran to the resilient people of Laos to view examples:
 
-https://platexample.ir/#/discover/laos
+https://platexample.ir/#/discover/laos:flutter
 
 # laos_plate
 
-Laos's licence plates for the `plate_core` library. The 2001 series: the provincial plates (private yellow, private EV amber, government blue, company white, taxable company blue-on-white, with the 2024 EV badge), the temporary plate with its expiry date, and the international-organisation, police and defence plates. Colour is the theme; shape is the spec.
+Laos's licence plates for plate_core: the 2001 series: the two-row provincial plates (private, government, company and taxable company, with the 2024 EV badge), and more.
 
-## Install
+## Languages
+
+| Language | Folder | Example |
+| --- | --- | --- |
+| Flutter / Dart | [`flutter/`](https://github.com/ArAd1Beyranvand/laos_plate/tree/main/flutter) | [platexample](https://platexample.ir/#/discover/laos:flutter) |
+| Kotlin | [`kotlin/`](https://github.com/ArAd1Beyranvand/laos_plate/tree/main/kotlin) | [platexample](https://platexample.ir/#/discover/laos:kotlin) |
+| Python | [`python/`](https://github.com/ArAd1Beyranvand/laos_plate/tree/main/python) | [platexample](https://platexample.ir/#/discover/laos:python) |
+| TypeScript | [`typescript/`](https://github.com/ArAd1Beyranvand/laos_plate/tree/main/typescript) | [platexample](https://platexample.ir/#/discover/laos:typescript) |
+
+## Quick start
+
+### Install
 
 ```yaml
 dependencies:
@@ -20,7 +31,7 @@ dependencies:
   laos_plate: ^0.1.0
 ```
 
-## Use
+### Use
 
 ```dart
 import 'package:plate_core/plate_core.dart';
@@ -35,14 +46,43 @@ PlateCanvas(
 );
 ```
 
-## Contains
+## Specs
 
-- `LaosCountry` — country panel: `laos`.
-- `LaosPlates` — 14 plate specs: `private`, `privateEv`, `government`, `company`, `companyEv`, `taxableCompany`, `temporary`, `diplomatic`, `foreignGuest`, `unitedNations`, `financialInstitution`, `publicSecurity`, `nationalDefence`, `of()`.
-- `LaosThemes` — 7 themes: `yellow`, `amber`, `government`, `white`, `taxable`, `international`, `security`.
-- `LaosValidator` — advisory validator; flags the frame, never blocks a keystroke.
-- `LaosTemporaryValidator` — advisory validator; flags the frame, never blocks a keystroke.
-- `LaosPrefixedValidator` — advisory validator; flags the frame, never blocks a keystroke.
+Each spec is one plate layout.
+
+- `LaosPlates.of`(…)
+- `LaosPlates.private`
+- `LaosPlates.privateEv`
+- `LaosPlates.government`
+- `LaosPlates.company`
+- `LaosPlates.companyEv`
+- `LaosPlates.taxableCompany`
+- `LaosPlates.temporary`
+- `LaosPlates.diplomatic`
+- `LaosPlates.foreignGuest`
+- `LaosPlates.unitedNations`
+- `LaosPlates.financialInstitution`
+- `LaosPlates.publicSecurity`
+- `LaosPlates.nationalDefence`
+
+## Themes
+
+- `LaosThemes.yellow`
+- `LaosThemes.amber`
+- `LaosThemes.government`
+- `LaosThemes.white`
+- `LaosThemes.taxable`
+- `LaosThemes.international`
+- `LaosThemes.security`
+
+## Change it
+
+`PlateCanvas` takes `spec:` (an entry of `LaosPlates`) and `theme:` (an entry of `LaosThemes`). Set `validator:` to `LaosClassLetters()` and `autoValidate: true` to show validation hints.
+
+## Also included
+
+- `LaosCountry` — the country panel.
+- `LaosClassLetters` — the plate validator.
 
 ## Plates
 
@@ -66,3 +106,6 @@ Not implemented: the pre-2001 series, which the article only dates.
 
 Painted by [`plate_core`](https://pub.dev/packages/plate_core); alphabets shared through [`plate_alphabet`](https://pub.dev/packages/plate_alphabet); optional character picker in [`plate_keypad`](https://pub.dev/packages/plate_keypad).
 
+## License
+
+See [LICENSE](https://github.com/ArAd1Beyranvand/laos_plate/blob/main/LICENSE).
